@@ -1,0 +1,72 @@
+$highlight-color: rgb(38, 91, 236);
+
+@mixin button {
+  border: none;
+  padding: 0.4rem;
+  color: white;
+  background-color: $highlight-color;
+  border-radius: 3px;
+}
+
+
+body {
+  display: grid;
+  grid-template-rows: 5rem auto;
+  // grid-template-rows: 10% 90%;
+  flex-direction: column;
+  justify-items: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 0;
+  margin: 0 10%;
+}
+
+
+.button {
+  @include button;
+}
+
+
+.main {
+  height: 90%;
+  width: 100%;
+  margin: 0;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+}
+
+.input {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.inputText {
+  padding: 0.3rem;
+  border: 2px solid lightgrey;
+  border-radius: 3px;
+  &:focus {
+    outline: none;
+    border-color: $highlight-color;
+  }
+
+}
+
+
+.message-list {
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,84 @@
+body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 5rem auto;
+      grid-template-rows: 5rem auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 0;
+  margin: 0 10%;
+}
+
+.button {
+  border: none;
+  padding: 0.4rem;
+  color: white;
+  background-color: #265bec;
+  border-radius: 3px;
+}
+
+.main {
+  height: 90%;
+  width: 100%;
+  margin: 0;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 15rem;
+}
+
+.input {
+  margin-top: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.inputText {
+  padding: 0.3rem;
+  border: 2px solid lightgrey;
+  border-radius: 3px;
+}
+
+.inputText:focus {
+  outline: none;
+  border-color: #265bec;
+}
+
+.message-list {
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=styles.css.map */
