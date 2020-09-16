@@ -17,9 +17,21 @@ const checkIfLoggedIn = () => {
 checkIfLoggedIn();
 
 socket.on('message', data => {
-  console.log(data);
   showMessage(data);
 })
+
+const sendMessage = () => {
+  if(messageText.value === '' || messageText.value === ' ') {
+    return;
+  }
+  const data = {
+    message : messageText.value,
+  }
+  socket.emit('chatMessage', data);
+}
+sendButton.onclick = () => {
+  sendMessage();
+}
 
 const showMessage = ({author, message}) => {
   let newMessage = document.createElement('li');
