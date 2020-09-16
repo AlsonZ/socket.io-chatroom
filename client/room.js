@@ -32,6 +32,11 @@ const sendMessage = () => {
 sendButton.onclick = () => {
   sendMessage();
 }
+messageText.addEventListener('keyup', (e) => {
+  if(e.code === "Enter") {
+    sendMessage();
+  }
+})
 
 const showMessage = ({author, message}) => {
   let newMessage = document.createElement('li');
