@@ -1,4 +1,9 @@
 const socket = io();
+const sendButton = document.getElementById('sendButton');
+const messageText = document.getElementById('messageText');
+const messages = document.getElementById('messages');
+const messageList = document.getElementById('messageList');
+
 
 const checkIfLoggedIn = () => {
   // grab room and username from localStorage if needed.
@@ -11,7 +16,14 @@ const checkIfLoggedIn = () => {
 }
 checkIfLoggedIn();
 
-socket.on('message', message => {
-  console.log(message);
+socket.on('message', data => {
+  console.log(data);
+  showMessage(data);
 })
 
+const showMessage = ({author, message}) => {
+  let newMessage = document.createElement('li');
+  newMessage.textContent += `[${author}] ${message}`;
+  messageList.appendChild(newMessage);
+  messageText.value = '';
+}
