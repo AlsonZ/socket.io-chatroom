@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
 const path = require('path');
-const { createUser, getUser } = require('./utils/users');
+const { createUser, getUser, removeUser } = require('./utils/users');
 const { messageFormat } = require('./utils/messages');
 
 const app = express();
@@ -10,8 +10,6 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(express.static(path.join(__dirname, 'client')));
-
-const serverName = 'Server';
 
 io.on('connection', (socket) => {
   // user joins a room
@@ -31,6 +29,14 @@ io.on('connection', (socket) => {
     // send message to all users including author
     io.to(user.room).emit('message', messageFormat(user.username, data.message));
   }); 
+
+  socket.on('disconnect', () => {
+    const user = removeUser(socket.id);
+    if(user) {
+      // removed successfully
+      io.to(user.room).emit('message', messageFormat('Server', `${user.username} has left`));
+    }
+  });
 
 
 });
