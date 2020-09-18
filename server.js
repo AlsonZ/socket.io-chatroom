@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
 const path = require('path');
-const { createUser, getUser, removeUser } = require('./utils/users');
+const { createUser, getUser, removeUser, getRoomUsers } = require('./utils/users');
 const { messageFormat } = require('./utils/messages');
 
 const app = express();
@@ -20,6 +20,7 @@ io.on('connection', (socket) => {
 
     // welcome the user
     io.to(user.room).emit('message', messageFormat('Server', `Welcome ${user.username}`));
+    sendRoomUserList(user.room);
   });
 
   // user sends a message
@@ -35,11 +36,19 @@ io.on('connection', (socket) => {
     if(user) {
       // removed successfully
       io.to(user.room).emit('message', messageFormat('Server', `${user.username} has left`));
+      sendRoomUserList(user.room);
     }
   });
 
-
+  const sendRoomUserList = (room) => {
+    io.to(room).emit('userList', {
+      room: room,
+      users: getRoomUsers(room)
+    });
+  }
 });
+
+
 
 
 server.listen(process.env.PORT || 3000, () => {console.log(`Server is running on port ${server.address().port}`)})
