@@ -5,16 +5,22 @@
     <title>Chatroom</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
   </head>
   <body>
     <h1 class="title">Chatroom</h1>
-    <div class="main">
-      <ul id="messageList" class="message-list"></ul>
-      <div class="input">
-          <input id="messageText" class="inputText" type="text" placeholder="Enter a message" autofocus>
-          <label for="messageText" id="sendButton" class="button">Send</label>
+    <div class="main row">
+      <div class="messages-container">
+        <ul id="messageList" class="message-list"></ul>
+        <div class="input">
+            <input id="messageText" class="inputText" type="text" placeholder="Enter a message" autofocus>
+            <label for="messageText" id="sendButton" class="button">Send</label>
+        </div>
       </div>
+      <ul id="userList" class="user-list">
+        
+      </ul>
     </div>
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="./room.js" async defer></script>

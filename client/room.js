@@ -3,6 +3,7 @@ const sendButton = document.getElementById('sendButton');
 const messageText = document.getElementById('messageText');
 const messages = document.getElementById('messages');
 const messageList = document.getElementById('messageList');
+const userList = document.getElementById('userList');
 
 
 const checkIfLoggedIn = () => {
@@ -18,7 +19,17 @@ checkIfLoggedIn();
 
 socket.on('message', data => {
   showMessage(data);
-})
+});
+
+socket.on('userList', data => {
+  console.log(data);
+  userList.innerHTML="<li>Users</li>";
+  data.users.forEach(user => {
+    const newUser = document.createElement('li');
+    newUser.innerText = user.username;
+    userList.appendChild(newUser);
+  });
+});
 
 const sendMessage = () => {
   if(messageText.value === '' || messageText.value === ' ') {
