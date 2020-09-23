@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Socket.io chatroom</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+  </head>
+  <body class="centered">
+    <h1 class="title">Socket.io chatroom</h1>
+    <div class="main column">
+      <div class="input column">
+        <input id="usernameText" class="inputText" type="text" placeholder="Enter a username" autofocus>
+        <p id="roomName" class="roomName"></p>
+        <input id="joinRoom" class="button" type="submit" value="Enter">
+      </div>
+    </div>
+    <script src="https://websocketschatroom.herokuapp.com/socket.io/socket.io.js" defer></script>
+    <script src="./join.js" defer></script>
+  </body>
+</html>

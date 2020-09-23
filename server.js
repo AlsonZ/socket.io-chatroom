@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client'), { extensions: ['html', 'htm'] }));
 
 io.on('connection', (socket) => {
   // user joins a room

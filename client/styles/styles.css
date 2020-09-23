@@ -114,4 +114,10 @@ body {
   text-align: center;
   font-weight: bold;
 }
+
+.roomName {
+  text-align: center;
+  margin: 0.2rem;
+  font-weight: bold;
+}
 /*# sourceMappingURL=styles.css.map */
