@@ -1,10 +1,12 @@
-const roomName = document.getElementById('roomName');
 
 
 const init = () => {
+  const roomName = document.getElementById('roomName');
   let room = getQuery('room');
   roomName.textContent = `Room: ${room}`;
-  
+  if(roomName.textContent === `Room: ${room}`) {
+    localStorage.setItem('room', room);
+  }
 }
 
 const getQuery = (sParam) => {
