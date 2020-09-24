@@ -11,7 +11,7 @@ const checkIfLoggedIn = () => {
   const username = localStorage.getItem('username');
   const room = localStorage.getItem('room');
   if(!room || !username) {
-    window.location.href="index.html";
+    window.location.href="/";
   }
   socket.emit('joinRoom', {username, room});
 }

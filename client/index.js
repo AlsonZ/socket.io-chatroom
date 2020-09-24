@@ -11,7 +11,7 @@ joinButton.addEventListener('click', () => {
   }
   localStorage.setItem('room', room);
   localStorage.setItem('username', username);
-  window.location.href="room.html";
+  window.location.href="room";
 });
 
 
