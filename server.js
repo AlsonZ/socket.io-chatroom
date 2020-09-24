@@ -48,6 +48,10 @@ io.on('connection', (socket) => {
   }
 });
 
+app.get('/j/:room', (req, res) => {
+  res.redirect(`/join?room=${req.params.room}`);
+})
+
 
 
 
