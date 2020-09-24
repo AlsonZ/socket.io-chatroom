@@ -1,5 +1,3 @@
-const socket = io();
-
 const usernameInput = document.getElementById('usernameText');
 const roomNameInput = document.getElementById('roomText');
 const joinButton = document.getElementById('joinRoom');

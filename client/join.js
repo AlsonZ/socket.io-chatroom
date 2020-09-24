@@ -1,4 +1,5 @@
-
+const joinButton = document.getElementById('joinRoom');
+const usernameInput = document.getElementById('usernameText');
 
 const init = () => {
   const roomName = document.getElementById('roomName');
@@ -18,5 +19,15 @@ const getQuery = (sParam) => {
     }
   }
 }
+
+joinButton.addEventListener('click', () => {
+  const username  = usernameInput.value;
+  if(username === '' || username === ' ') {
+    // should have error msg here 
+    return;
+  }
+  localStorage.setItem('username', username);
+  window.location.href="room.html";
+});
 
 init();
