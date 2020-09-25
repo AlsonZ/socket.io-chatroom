@@ -90,11 +90,53 @@ body {
 .sidebar {
   width: 13%;
 
-  p {
+  .room-link-container {
     text-align: center;
     border: 1px solid white;
+    margin: 1rem 0;
     padding: 0.2rem;
     border-radius: 0.2rem;
+    position: relative;
+    cursor: pointer;
+
+    #roomName {
+      margin: 0;
+    }
+
+    .tooltip {
+      visibility: hidden;
+      position: absolute;
+      z-index: 1;
+      text-align: center;
+      padding: 0.3rem 0;
+      border-radius: 0.3rem;
+      width: 10rem;
+      color: black;
+      background: rgb(218, 218, 218);
+      opacity: 0;
+      transition: opacity 1s;
+
+      bottom: 125%;
+      left: 50%;
+      margin-left: -5rem;
+
+      &::after {
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgb(218, 218, 218) transparent transparent transparent;
+      }
+    }
+
+    &:hover .tooltip{
+      visibility: visible;
+      opacity: 1;
+    }
+
   }
 
   .user-list {
