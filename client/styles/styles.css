@@ -13,6 +13,8 @@ body {
   padding: 0;
   margin: 0 5% 0 10%;
   font-family: 'Roboto', sans-serif;
+  background-color: #383737;
+  color: white;
 }
 
 .button {
@@ -26,6 +28,7 @@ body {
 .main {
   height: 100%;
   width: 100%;
+  max-width: 80rem;
   margin: 0;
 }
 
@@ -61,13 +64,13 @@ body {
           justify-content: center;
 }
 
-.inputText {
+.input .inputText {
   padding: 0.3rem;
   border: 2px solid lightgrey;
   border-radius: 3px;
 }
 
-.inputText:focus {
+.input .inputText:focus {
   outline: none;
   border-color: #265bec;
 }
@@ -77,12 +80,13 @@ body {
   width: 85%;
 }
 
-.message-list {
+.messages-container .message-list {
   overflow-y: auto;
   margin: 0;
   padding: 0;
   height: 90%;
   width: 100%;
+  word-wrap: break-word;
 }
 
 .centered {
@@ -97,20 +101,30 @@ body {
           align-items: center;
 }
 
-.user-list {
-  padding: 0;
-  margin: 0 1rem;
-  overflow-y: auto;
+.sidebar {
   width: 13%;
 }
 
-.user-list li {
+.sidebar p {
+  text-align: center;
+  border: 1px solid white;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+}
+
+.sidebar .user-list {
+  padding: 0;
+  margin: 0 1rem;
+  overflow-y: auto;
+}
+
+.sidebar .user-list li {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.user-list li:first-child {
+.sidebar .user-list li:first-child {
   text-align: center;
   font-weight: bold;
 }
@@ -119,5 +133,18 @@ body {
   text-align: center;
   margin: 0.2rem;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 1400px) {
+  .main {
+    max-width: 60rem;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .main {
+    min-width: 40rem;
+    max-width: 40rem;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

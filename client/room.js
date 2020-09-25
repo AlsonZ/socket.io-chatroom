@@ -5,7 +5,6 @@ const messages = document.getElementById('messages');
 const messageList = document.getElementById('messageList');
 const userList = document.getElementById('userList');
 
-
 const checkIfLoggedIn = () => {
   // grab room and username from localStorage if needed.
   const username = localStorage.getItem('username');
@@ -16,6 +15,14 @@ const checkIfLoggedIn = () => {
   socket.emit('joinRoom', {username, room});
 }
 checkIfLoggedIn();
+
+const loadRoomName = () => {
+  const roomName = document.getElementById('roomName');
+  const room = localStorage.getItem('room');
+  roomName.textContent = room;
+}
+loadRoomName();
+
 
 socket.on('message', data => {
   showMessage(data);
