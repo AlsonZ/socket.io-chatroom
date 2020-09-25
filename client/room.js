@@ -4,6 +4,8 @@ const messageText = document.getElementById('messageText');
 const messages = document.getElementById('messages');
 const messageList = document.getElementById('messageList');
 const userList = document.getElementById('userList');
+const roomLink = document.getElementById('roomLink');
+
 
 const checkIfLoggedIn = () => {
   // grab room and username from localStorage if needed.
@@ -23,6 +25,16 @@ const loadRoomName = () => {
 }
 loadRoomName();
 
+roomLink.onclick = () => {
+  const room = localStorage.getItem('room');
+  const url = window.location.host;
+  navigator.clipboard.writeText(`${url}/j/${room}`)
+    .then(()=> {
+      const tooltip = document.getElementById('tooltip');
+      tooltip.textContent = "Success";
+      tooltip.style.backgroundColor = "lightgreen";
+    })
+}
 
 socket.on('message', data => {
   showMessage(data);
@@ -47,6 +59,7 @@ const sendMessage = () => {
   }
   socket.emit('chatMessage', data);
 }
+
 sendButton.onclick = () => {
   sendMessage();
 }
